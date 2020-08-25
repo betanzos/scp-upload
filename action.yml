@@ -1,0 +1,30 @@
+name: 'SCP Upload'
+author: 'Eduardo Betanzos'
+description: 'Upload files using SCP'
+inputs:
+  source:
+    description: 'Source local file path'
+    required: true
+  host:
+    description: 'Remote host'
+    required: true
+  port:
+    description: 'Remote host SSH port'
+    required: false
+    default: '22'
+  username:
+    description: 'Remote host username'
+    required: true
+  key:
+    description: 'SSH private key'
+    required: true
+  remote_dir:
+    description: 'Remote directory to copy the file'
+    required: false
+    default: '~'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  icon: 'upload-cloud'
+  color: 'orange'
