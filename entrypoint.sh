@@ -14,3 +14,7 @@ fi
 
 # Copy the file
 scp -i key -o "StrictHostKeyChecking no" -P $INPUT_PORT "$INPUT_SOURCE" "$INPUT_USERNAME"@"$INPUT_HOST":$remote_dir
+
+# Clean
+cat /dev/null > ~/.bash_history
+rm key
