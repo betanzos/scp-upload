@@ -35,6 +35,9 @@ This action allows to upload files using SCP with key-based authentication.
     # Remote directory to copy the file. Default $HOME
     # REQUIRED  
     remote_dir: '~'
+
+    # Recursively copy entire source directories. Valid values: true and false (specified as strings)
+    recursive: 'false'
 ```
 
 # License
