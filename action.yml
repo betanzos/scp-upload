@@ -22,6 +22,10 @@ inputs:
     description: 'Remote directory to copy the file'
     required: false
     default: '~'
+  recursive:
+    description: 'Recursively copy entire source directories. Valid values: true and false (specified as strings)'
+    required: false
+    default: 'false'
 runs:
   using: 'docker'
   image: 'Dockerfile'

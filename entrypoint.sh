@@ -12,8 +12,13 @@ else
     ssh -i key -o "StrictHostKeyChecking no" -p $INPUT_PORT "$INPUT_USERNAME"@"$INPUT_HOST" "mkdir -p ${remote_dir}/"
 fi
 
+recursive=""
+if [ "$INPUT_RECURSIVE" = "true" ]; then
+    recursive="-r"
+fi
+
 # Copy the file
-scp -i key -o "StrictHostKeyChecking no" -P $INPUT_PORT "$INPUT_SOURCE" "$INPUT_USERNAME"@"$INPUT_HOST":$remote_dir
+scp $recursive -i key -o "StrictHostKeyChecking no" -P $INPUT_PORT "$INPUT_SOURCE" "$INPUT_USERNAME"@"$INPUT_HOST":$remote_dir
 
 # Clean
 cat /dev/null > ~/.bash_history
